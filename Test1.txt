@@ -1,0 +1,29 @@
+1. Html stands for hypertext markup language.It is standard markup language used to create web page.
+Html is a combination of hypertext and markup.Hyper text is used to define the link between the web page.
+Markup language is used to define the text document within the tag to define the structure of the webpage.
+This  language is used to annotate the text to make the computer understand the language.
+
+2. Features of HTML are:
+It is easy to learn and easy to use
+It is platform independent
+Images ,videos or audios are used in the web page
+
+3.Multipurpose internet mail extension
+It takes care of sending different kind of data through Electronics mail services.   
+
+4.<html>
+<head>
+<title>Program</title>
+</head>
+<body>
+<h1>Hello World</h1>
+<p>This is my first web page</p>
+</body>
+</html>
+
+
+
+
+
+
+
