@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+</head>
+<body>
+    <h2>String Concanate</h2>
+
+    <label for="str1">First String</label>
+    <input type="text" id="str1">
+
+    <label for="str2">Second String</label>
+    <input type="text" id="str2">
+
+ <button onclick="concanateStrings()">Click me</button>
+    <p id="result"></p>
+
+    <script>
+        function concanateStrings(){
+            let string1 = document.getElementById("str1").value;
+            let string2 = document.getElementById("str2").value;
+
+            let result = string1 + string2;
+
+            document.getElementById("result").innerText = "Result:" + result;
+
+        }
+    </script>
+</body>
+</html>
