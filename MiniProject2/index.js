@@ -62,6 +62,7 @@ restartBtn.addEventListener('click', () => {
   score = 0;
   currentQuestion = 0;
   userAnswers = [];
+   reviewEl.innerHTML = '';
   showScreen(startScreen);
 });
 
