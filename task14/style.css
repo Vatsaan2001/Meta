@@ -1,0 +1,22 @@
+body {
+      background-color: white;
+    }
+    .login-container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .form-control:invalid {
+      border-color: red;
+    }
+    .form-control:valid {
+      border-color: green;
+    }
+    .error-message {
+      color: red;
+      font-size: 0.875rem;
+      display: none;
+    }
