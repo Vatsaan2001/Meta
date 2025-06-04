@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8" />
+    <title>usecontext</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+<body>
+    <h2>Student information</h2>
+  <div id="student-info">
+    <!-- Student info will be inserted here -->
+  </div>
+
+  <script>
+    // Student data object
+    const student = {
+      name: 'Srivatsaan',
+      age: 22,
+      email: 'srivatsaan@example.com'
+    };
+
+    
+    const container = document.getElementById('student-info');
+
+    container.innerHTML = `
+      <p><strong>Name:</strong> ${student.name}</p>
+      <p><strong>Age:</strong> ${student.age}</p>
+      <p><strong>Email:</strong> ${student.email}</p>
+    `;
+  </script>
+</body>
+</html>
