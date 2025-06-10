@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8" />
+    <title>Delete</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <h2>Delete post</h2>
+   <button id="deleteButton">
+    Delete Post
+</button>
+
+<div id="messageBox" style="display: none; margin-top: 10px;">
+</div>
+
+<script>
+    const deleteButton = document.getElementById('deleteButton');
+    const messageBox = document.getElementById('messageBox');
+    const API_URL = 'https://jsonplaceholder.typicode.com/posts/1';
+
+  
+    function showMessage(message) {
+        messageBox.textContent = message;
+        messageBox.style.display = 'block';
+        messageBox.style.color = 'green'; 
+        setTimeout(() => {
+            messageBox.style.display = 'none';
+        }, 3000);
+    }
+
+   
+    deleteButton.addEventListener('click', async () => {
+        deleteButton.textContent = 'Deleting...';
+        deleteButton.disabled = true;
+        messageBox.style.display = 'none'; 
+
+        try {
+            const response = await fetch(API_URL, {
+                method: 'DELETE'
+            });
+            showMessage('Post deleted successfully!');
+
+        } catch (error) {
+            
+            console.error('Error during deletion:', error);
+            showMessage('An error occurred. Check console.'); 
+            messageBox.style.color = 'red'; 
+        } finally {
+            deleteButton.textContent = 'Delete Post';
+            deleteButton.disabled = false; 
+        }
+    });
+</script>
+</body>
+</html>
