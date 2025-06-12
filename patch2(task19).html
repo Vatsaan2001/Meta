@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CRUD</title>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div class="container py-5">
+    <h2 class="text-center mb-4">Patch</h2>
+
+    <div class="d-flex justify-content-center gap-3 mb-4 flex-wrap">
+      <button class="btn btn-success" onclick="createPost()">Create Post</button>
+      <button class="btn btn-info" onclick="getPost()">Get Post</button>
+      <button class="btn btn-warning" onclick="updatePost()">Update Post</button>
+      <button class="btn btn-danger" onclick="deletePost()">Delete Post</button>
+    </div>
+
+    <div class="card">
+      <div class="card-header bg-dark text-white">📋 Output</div>
+      <div class="card-body">
+        <pre id="output">Click a button to begin...</pre>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function createPost() {
+      const newPost = {
+        title: "Srivatsaan",
+        body: "egywegtwyegruywegrwygfuwgfwugfwugfweygfywf",
+        userId: 103
+      };
+
+      fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newPost)
+      })
+        .then(res => res.json())
+        .then(data => {
+          output.innerText = " Post Created:\n" + JSON.stringify(data, null, 2);
+        })
+        .catch(err => {
+          output.innerText = " Error Creating Post\n" + err;
+        });
+    }
+
+  function getPost() {
+  const postId = 1;
+
+  fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+    .then(res => res.json())
+    .then(data => {
+      data.title = "Custom Title by Srivatsaan";
+      data.body = "The continent of Asia, home to the majority of the world's population and countries as diverse as China, South Korea and India, has thousands of years of rich history.";
+      output.innerText = " Modified Post Data:\n" + JSON.stringify(data, null, 2);
+    })
+    .catch(err => {
+      output.innerText = " Error Fetching Post\n" + err;
+    });
+}
+
+    function updatePost() {
+      const updatedData = {
+        title: "Updated by Srivatsaan"
+      };
+
+      fetch("https://jsonplaceholder.typicode.com/posts/1", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedData)
+      })
+        .then(res => res.json())
+        .then(data => {
+          output.innerText = " Post Updated:\n" + JSON.stringify(data, null, 2);
+        })
+        .catch(err => {
+          output.innerText = " Error Updating Post\n" + err;
+        });
+    }
+
+    function deletePost() {
+      fetch("https://jsonplaceholder.typicode.com/posts/1", {
+        method: "DELETE"
+      })
+        .then(res => {
+          if (res.status === 200 || res.status === 204) {
+            output.innerText = " Post Deleted Successfully";
+          } else {
+            output.innerText = " Delete Failed";
+          }
+        })
+        .catch(err => {
+          output.innerText = " Error Deleting Post\n" + err;
+        });
+    }
+  </script>
+</body>
+</html>
